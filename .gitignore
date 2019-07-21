@@ -128,3 +128,5 @@ local.properties
  
 # PDT-specific
 .buildpath
+*.jar
+!gradle/wrapper/gradle-wrapper.jar
