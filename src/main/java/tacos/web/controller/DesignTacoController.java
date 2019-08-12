@@ -4,9 +4,14 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import javax.validation.Valid;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -18,6 +23,7 @@ import tacos.domain.Taco;
 @Slf4j
 @Controller
 @RequestMapping
+@Validated
 public class DesignTacoController {
 
 	@GetMapping("/design")
@@ -44,10 +50,16 @@ public class DesignTacoController {
 	}
 
 	@PostMapping
-	public String processDesign(Taco taco) {
+	public String processDesign(@Valid @ModelAttribute("design") Taco design,  Errors errors) {
+		if (errors.hasErrors()) {
+			System.out.println("there are errors");
+			return "design";
+		}
+		
+		System.out.println("there are no errors");
 		// Save the taco design...
 		// We'll do this in chapter 3
-		log.info("Processing Taco desing: " + taco);
+		log.info("Processing Taco desing: " + design);
 		return "redirect:/orders/current";
 	}
 
