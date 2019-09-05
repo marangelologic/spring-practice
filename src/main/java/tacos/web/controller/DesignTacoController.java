@@ -27,7 +27,7 @@ import tacos.web.repository.TacoRepository;
 
 @Slf4j
 @Controller
-@RequestMapping
+@RequestMapping("/design")
 @Validated
 @SessionAttributes("order")
 public class DesignTacoController {
@@ -41,7 +41,7 @@ public class DesignTacoController {
 		this.designRepo = designRepo;
 	}
 
-	@GetMapping("/design")
+	@GetMapping
 	public String showDesignForm(Model model) {
 		List<Ingredient> ingredients = new ArrayList<>();
 		ingredientRepo.findAll().forEach(i -> ingredients.add(i));
