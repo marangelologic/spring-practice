@@ -32,20 +32,17 @@ import tacos.web.repository.TacoRepository;
 @SessionAttributes("order")
 public class DesignTacoController {
 
-	private final IngredientRepository ingredientRepo;
-	private TacoRepository designRepo;
+	@Autowired
+	private IngredientRepository ingredientRepo;
 
 	@Autowired
-	public DesignTacoController(IngredientRepository ingredientRepo, TacoRepository designRepo) {
-		this.ingredientRepo = ingredientRepo;
-		this.designRepo = designRepo;
-	}
+	private TacoRepository designRepo;
 
 	@GetMapping
 	public String showDesignForm(Model model) {
 		List<Ingredient> ingredients = new ArrayList<>();
 		ingredientRepo.findAll().forEach(i -> ingredients.add(i));
-		
+
 		Type[] types = Ingredient.Type.values();
 		for (Type type : types) {
 			model.addAttribute(type.toString().toLowerCase(), filterByType(ingredients, type));
@@ -57,7 +54,6 @@ public class DesignTacoController {
 	private List<Ingredient> filterByType(List<Ingredient> ingredients, Type type) {
 
 		return ingredients.stream().filter(x -> x.getType().equals(type)).collect(Collectors.toList());
-
 	}
 
 	@ModelAttribute(name = "order")
