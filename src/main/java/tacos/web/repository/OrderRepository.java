@@ -1,8 +1,9 @@
 package tacos.web.repository;
 
+import org.springframework.data.repository.CrudRepository;
+
 import tacos.domain.Order;
 
-public interface OrderRepository {
-	Order save(Order order);
+public interface OrderRepository extends CrudRepository<Order,Long> {
 
 }

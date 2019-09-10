@@ -12,12 +12,15 @@ import org.springframework.stereotype.Repository;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import lombok.extern.slf4j.Slf4j;
 import tacos.domain.Order;
 import tacos.domain.Taco;
 
-@Repository
-public class OrderREpositoryImpl implements OrderRepository {
 
+@Slf4j
+//@Repository
+public class OrderREpositoryImpl {
+/*
 	private SimpleJdbcInsert orderInserter;
 	private SimpleJdbcInsert orderTacoInserter;
 	private ObjectMapper objectMapper;
@@ -51,10 +54,15 @@ public class OrderREpositoryImpl implements OrderRepository {
 	}
 
 	private void saveTacoToOrder(Taco taco, long orderId) {
-		Map<String, Object> values = new HashMap<>();
-		values.put("tacoOrder", orderId);
-		values.put("taco", taco.getId());
-		orderTacoInserter.execute(values);
+		try {
+			Map<String, Object> values = new HashMap<>();
+			values.put("tacoOrder", orderId);
+			values.put("taco", taco.getId());
+			orderTacoInserter.execute(values);
+		} catch (Exception e) {
+			log.debug(e.getMessage());
+		}
+		
 	}
-
+*/
 }
