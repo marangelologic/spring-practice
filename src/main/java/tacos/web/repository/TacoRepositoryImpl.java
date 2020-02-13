@@ -15,9 +15,9 @@ import org.springframework.stereotype.Repository;
 import tacos.domain.Ingredient;
 import tacos.domain.Taco;
 
-@Repository
-public class TacoRepositoryImpl implements TacoRepository {
-
+//@Repository
+public class TacoRepositoryImpl {
+/*
 	private JdbcTemplate jdbc;
 
 	public TacoRepositoryImpl(JdbcTemplate jdbc) {
@@ -49,5 +49,5 @@ public class TacoRepositoryImpl implements TacoRepository {
 	private void saveIngredientToTaco(Ingredient ingredient, long tacoId) {
 		jdbc.update("insert into Taco_Ingredients (taco, ingredient) " + "values (?, ?)", tacoId, ingredient.getId());
 	}
-
+*/
 }

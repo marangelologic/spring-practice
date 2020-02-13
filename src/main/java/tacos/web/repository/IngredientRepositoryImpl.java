@@ -9,9 +9,9 @@ import org.springframework.stereotype.Repository;
 
 import tacos.domain.Ingredient;
 
-@Repository
-public class IngredientRepositoryImpl implements IngredientRepository {
-	
+//@Repository
+public class IngredientRepositoryImpl  {
+	/*
 	private JdbcTemplate jdbc;
 	
 	@Autowired
@@ -41,5 +41,5 @@ public class IngredientRepositoryImpl implements IngredientRepository {
 				ingredient.getName(), ingredient.getType().toString());
 		return ingredient;
 	}
-
+*/
 }

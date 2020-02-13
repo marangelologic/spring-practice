@@ -23,6 +23,7 @@ import tacos.domain.Ingredient.Type;
 import tacos.domain.Order;
 import tacos.domain.Taco;
 import tacos.web.repository.IngredientRepository;
+import tacos.web.repository.IngredientJDBCRepository;
 import tacos.web.repository.TacoRepository;
 
 @Slf4j
